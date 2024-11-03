@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+      <img src="../img/splash-logo.png" alt="App Logo" id="splash-image">
+      <h1 id="app-title">SmartBite</h1>
+    </div>
+    <!-- Onboarding Screen -->
+    <div id="onboarding-screen" class="carousel" style="display: none;">
+      <div class="slides">
+        <!-- Carousel Slide 1 -->
+        <div class="slide">
+          <img src="img/img01.png" alt="Slide 1 Image" class="slide-image">
+          <h2 class="radio-canada-big-sb">Stay Organised</h2>
+          <p class="radio-canada-big-r">Plan meals based on your favourites, and we'll generate a shopping list so you never miss an item.</p>
+        </div>
+        <!-- Carousel Slide 2 -->
+        <div class="slide">
+          <img src="img/img02.png" alt="Slide 2 Image" class="slide-image">
+          <h2>Reduce Waste</h2>
+          <p>Reduce food waste by tracking what you throw away. We also provide tips on proper food storage.</p>
+        </div>
+        <!-- Carousel Slide 3 -->
+        <div class="slide">
+          <img src="img/img03.png" alt="Slide 3 Image" class="slide-image">
+          <h2>Save Money</h2>
+          <p>Track your food waste and spending to help you save money.</p>
+        </div>
+      </div>
+      <!-- Carousel Dots -->
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <!-- Get Started button -->
+      <a href="#third-screen" class="get-started-btn">Get Started</a>
+    </div>
+    <!-- Create Account Screen -->
+    <div id="create-account-screen" style="display: none;">
+      <!-- Top section with back arrow and title -->
+      <div class="top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" id="back-arrow">
+        <h2 class="title">Create an Account</h2>
+      </div>
+      <!-- Form Section -->
+      <div class="form-section">
+        <h3 class="form-title">Create an account or sign up with Google</h3>
+        <!-- Form Fields -->
+        <form id="create-account-form">
+          <!-- Name Input -->
+          <input type="text" id="name" name="name" placeholder="Name" required>
+          <!-- Email Input -->
+          <input type="email" id="email" name="email" placeholder="Email" required>
+          <!-- Submit Button -->
+          <button type="submit" class="create-account-submit-btn">Create Account</button>
+        </form>
+        <!-- Google Sign Up Button -->
+        <a href="#" class="google-signup-btn">
+          <img src="img/google-icon.png" alt="Google Icon" class="google-icon"> Sign up with Google </a>
+      </div>
+    </div>
+    <!-- Add Your Card Screen -->
+    <div id="add-card-screen" style="display: none;">
+      <!-- Top Section with back arrow and title -->
+      <div class="top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" id="back-arrow-add-card">
+        <h2 class="title">Add your card</h2>
+      </div>
+      <p class="info-text">SmartBite uses your card to track grocery information when you are making payments with your digital wallet.</p>
+      <div class="image-container">
+        <img src="img/img04.png" alt="Card Image" class="card-image">
+      </div>
+      <p class="tracking-info-title">What type of information do we track?</p>
+      <ol class="tracking-info-list">
+        <li>Cost of each grocery item</li>
+        <li>Weight of each grocery item</li>
+      </ol>
+      <!-- Agree and Continue CTA Button -->
+      <button class="agree-continue-btn">Agree and Continue</button>
+    </div>
+    <!-- Add Card Information Screen -->
+    <div id="add-card-info-screen" style="display: none;">
+      <!-- Top Section with back arrow and title -->
+      <div class="top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" id="back-arrow-add-card-info">
+        <h2 class="title">Add card information</h2>
+      </div>
+      <!-- Form Section -->
+      <div class="form-section">
+        <h3 class="form-title">Please make sure the information provided is correct.</h3>
+        <!-- Form Fields -->
+        <form id="add-card-info-form">
+          <!-- Name on Card -->
+          <input type="text" id="card-name" name="card-name" placeholder="Name on Card" required>
+          <!-- Card Number -->
+          <input type="text" id="card-number" name="card-number" placeholder="Card Number" required>
+          <!-- Expiry Date -->
+          <input type="text" id="expiry-date" name="expiry-date" placeholder="Expiry Date (MM/YY)" required>
+          <!-- CVV -->
+          <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+          <!-- Submit button -->
+          <button type="submit" class="add-card-submit-btn">Add and Continue</button>
+        </form>
+      </div>
+    </div>
+    <!-- Home Screen with Bottom Navigation -->
+    <div id="home-screen" style="display: none;">
+      <div class="centered-content">
+        <img src="img/img05.png" alt="Centered Image" class="center-image">
+        <h1 class="center-title">Create a meal plan</h1>
+        <p class="center-paragraph">Get started by create a meal plan while we organise everything into a shopping list for you.</p>
+      </div>
+      <!-- 'Fixed' Add Meal Button -->
+      <div class="add-meal-button">
+        <img src="img/add-meal-button.png" alt="Add Meal Button" id="add-meal-icon">
+      </div>
+      <!-- Pop-up Window -->
+      <div class="meal-plan-popup hidden">
+        <div class="popup-option create">Create new meal plan</div>
+        <hr class="popup-divider">
+        <div class="popup-option import">Import past meal plans</div>
+      </div>
+      <!-- Fixed Bottom Navigation Bar -->
+      <div class="bottom-nav">
+        <!-- Home -->
+        <div class="nav-option active">
+          <img src="img/home-active.png" alt="Home Icon" class="nav-icon">
+          <p class="nav-text">Home</p>
+        </div>
+        <!-- Track -->
+        <div class="nav-option track-nav-option">
+          <img src="img/track-inactive.png" alt="Track Icon" class="nav-icon">
+          <p class="nav-text">Track</p>
+        </div>
+        <!-- Settings -->
+        <div class="nav-option">
+          <img src="img/settings-inactive.png" alt="Settings Icon" class="nav-icon">
+          <p class="nav-text">Settings</p>
+        </div>
+      </div>
+    </div>
+    <!-- Create your meal plan screen -->
+    <div id="create-meal-plan-screen" style="display: none;">
+      <!-- Top Section with back arrow and title -->
+      <div class="top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" id="back-arrow-create-meal">
+        <h2 class="title">Create your meal plan</h2>
+      </div>
+      <p class="info-text">Generate a list of groceries by adding your favourite recipe.</p>
+      <div class="search-bar">
+        <input type="text" placeholder="Search recipe name" id="search-recipe">
+      </div>
+      <!-- Popular Section -->
+      <h3 class="popular-title">Popular</h3>
+      <!-- Popular Recipes -->
+      <div class="popular-recipes">
+        <!-- Recipe 1 -->
+        <div class="recipe-container">
+          <img src="img/mapoTofu-recipe.png" alt="Recipe 1" class="recipe-image">
+          <div class="recipe-details">
+            <p class="recipe-name">Mapo Tofu</p>
+            <input type="checkbox" name="recipe" class="recipe-checkbox" data-recipe-id="recipe1">
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-container">
+          <img src="img/laksa-recipe.png" alt="Recipe 2" class="recipe-image">
+          <div class="recipe-details">
+            <p class="recipe-name">Laksa</p>
+            <input type="checkbox" name="recipe" class="recipe-checkbox" data-recipe-id="recipe2">
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-container">
+          <img src="img/springRolls-recipe.png" alt="Recipe 3" class="recipe-image">
+          <div class="recipe-details">
+            <p class="recipe-name">Spring Rolls</p>
+            <input type="checkbox" name="recipe" class="recipe-checkbox" data-recipe-id="recipe3">
+          </div>
+        </div>
+      </div>
+      <!-- Translucent Sticky Bottom Background with CTA Button -->
+      <div class="bottom-sticky">
+        <button class="preview-button">Preview Groceries</button>
+      </div>
+    </div>
+    <!-- Past Meal Plans Screen -->
+    <div id="past-meal-plans-screen" style="display: none;">
+      <!-- Top section with back arrow and title -->
+      <div class="past-meal-top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" class="past-meal-back-arrow">
+        <h2 class="past-meal-title">Past meal plans</h2>
+      </div>
+      <!-- Popular Meal Plans Section -->
+      <div class="past-meal-recipes">
+        <!-- Item 1 -->
+        <div class="past-meal-recipe-container">
+          <img src="img/mapoTofu-recipe.png" alt="Recipe 1" class="past-meal-recipe-image">
+          <div class="recipe-details">
+            <p class="recipe-name">Mapo Tofu</p>
+            <input type="checkbox" name="recipe" class="recipe-checkbox" data-recipe-id="recipe1">
+          </div>
+        </div>
+      </div>
+      <!-- Import Recipe Button -->
+      <div class="past-meal-import-button-sticky">
+        <button class="past-meal-import-button">Import Recipe</button>
+      </div>
+      <!-- Bottom Sheet for Import Recipe Confirmation -->
+      <div id="import-recipe-overlay" class="overlay" style="display: none;">
+        <div id="import-recipe-bottom-sheet" class="bottom-sheet">
+          <div class="bottom-sheet-handle"></div>
+          <!-- Content inside the bottom sheet -->
+          <div class="import-recipe-header">
+            <img src="img/sparkle.png" alt="Icon" class="import-recipe-icon">
+            <h2 class="import-recipe-title">Dynamic Food Portioning</h2>
+          </div>
+          <p class="import-recipe-paragraph"> Dynamic Food Portioning revises and improves your past meal plan based on the food waste you have recorded. </p>
+          <p class="import-recipe-paragraph"> Do you wish to apply the changes? </p>
+          <button class="apply-preview-button">Apply and Preview</button>
+          <button class="import-as-is-button">No, import as it is</button>
+        </div>
+      </div>
+    </div>
+    <!-- Preview Groceries V2 Screen -->
+    <div id="preview-groceries-v2-screen" style="display: none;">
+      <div class="preview-v2-top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" class="preview-v2-back-arrow">
+        <h2 class="preview-v2-title">Preview Groceries</h2>
+      </div>
+      <p class="preview-v2-info-text"> Check your groceries generated based on your recipe, before adding them to your plan. Revised portion changes are marked in green </p>
+      <div id="preview-v2-content">
+        <!-- Preview V2 Content -->
+        <div class="preview-v2-recipe">
+          <h3 class="preview-v2-recipe-title">Ma Po Tofu</h3>
+          <!-- Tofu Item -->
+          <div class="preview-v2-item">
+            <div class="preview-v2-item-text">
+              <span class="preview-v2-item-name">Tofu</span>
+              <div class="preview-v2-item-amount">
+                <span>350g</span>
+                <span class="amount-difference">(-100g)</span>
+              </div>
+            </div>
+            <img src="img/pencil-icon.png" alt="Edit" class="preview-v2-edit-icon">
+          </div>
+          <hr class="preview-v2-divider">
+          <!-- Doubanjiang Item -->
+          <div class="preview-v2-item">
+            <div class="preview-v2-item-text">
+              <span class="preview-v2-item-name">Doubanjiang</span>
+              <div class="preview-v2-item-amount">1 bottle</div>
+            </div>
+            <img src="img/pencil-icon.png" alt="Edit" class="preview-v2-edit-icon">
+          </div>
+          <hr class="preview-v2-divider">
+          <!-- Fermented Black Beans Item -->
+          <div class="preview-v2-item">
+            <div class="preview-v2-item-text">
+              <span class="preview-v2-item-name">Fermented Black Beans</span>
+              <div class="preview-v2-item-amount">1 bottle</div>
+            </div>
+            <img src="img/pencil-icon.png" alt="Edit" class="preview-v2-edit-icon">
+          </div>
+        </div>
+      </div>
+      <!-- Import Recipe Button -->
+      <div class="preview-v2-addRecipeToPlan-button-sticky">
+        <button class="preview-v2-addRecipeToPlan-button">Add recipe to plan</button>
+      </div>
+    </div>
+    <!-- Preview Groceries Screen -->
+    <div id="preview-groceries-screen" style="display: none;">
+      <!-- Top section with back arrow and title -->
+      <div class="top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" id="back-arrow-preview">
+        <h2 class="title">Preview Groceries</h2>
+      </div>
+      <p class="info-text">Check your groceries generated based on your recipe, before adding them to your plan.</p>
+      <div id="recipe-content"></div>
+      <div id="bottom-sheet" class="bottom-sheet-overlay" style="display: none;">
+        <div class="bottom-sheet-content">
+          <!-- Slide down bar -->
+          <div class="slide-down-bar"></div>
+          <!-- Title -->
+          <h3 class="bottom-sheet-title">Mapo Tofu</h3>
+          <!-- Light grey containers for unit value and type -->
+          <div class="input-container">
+            <div class="light-grey-box">450</div>
+            <div class="light-grey-box">Grams</div>
+          </div>
+          <!-- Done Button -->
+          <button class="done-button" onclick="hideBottomSheet()">Done</button>
+        </div>
+      </div>
+      <div class="preview-bottom-sticky">
+        <button class="add-recipes-button">Add recipes to plan</button>
+      </div>
+    </div>
+    <!-- Shopping List Screen -->
+    <div id="shopping-list-screen" style="display: none;">
+      <!-- Alert Box (when user adds a grocery beyond their plan) -->
+      <div id="alert-box" class="alert-box" style="display: none;">
+        <img src="img/tick-icon.png" alt="Success" class="alert-icon">
+        <!-- Replace with the actual path -->
+        <span class="alert-text">1 item has been added</span>
+      </div>
+      <h1 class="shopping-list-title">SmartBite</h1>
+      <p class="shopping-list-intro"> Check off items you have purchased during grocery shopping. </p>
+      <div class="shopping-list-green-container">
+        <img src="img/shopping-bag-icon.png" alt="Shopping Bag Icon" class="shopping-bag-icon">
+        <div class="green-container-text">
+          <h3 class="green-container-title">Adding groceries beyond your plan?</h3>
+          <button class="green-container-add-button">Add</button>
+        </div>
+      </div>
+      <!-- Recipes 'populated dynamically' from the 'Preview Groceries' Screen -->
+      <div id="shopping-list-recipes"></div>
+      <button class="add-groceries-button">
+        <img src="img/add-groceries-button.png" alt="Add Groceries Button">
+      </button>
+      <!-- Pop-up for 'Add Groceries' in 'Shopping List' Screen -->
+      <div id="groceries-popup" class="groceries-popup" style="display: none;">
+        <div class="popup-option">Create new meal plan</div>
+        <div class="popup-option">Additional groceries</div>
+      </div>
+      <!-- 'Fixed' Bottom Navigation Bar -->
+      <div class="bottom-navigation">
+        <button class="nav-option active shopping-list-home-nav-option">
+          <img src="img/home-active.png" alt="Home Icon" class="nav-icon">
+          <p class="nav-text">Home</p>
+        </button>
+        <button class="nav-option">
+          <img src="img/track-inactive.png" alt="Track Icon" class="nav-icon">
+          <p class="nav-text">Track</p>
+        </button>
+        <button class="nav-option">
+          <img src="img/settings-inactive.png" alt="Settings Icon" class="nav-icon">
+          <p class="nav-text">Settings</p>
+        </button>
+      </div>
+      <!-- Unique Bottom Sheet Overlay for Extra Groceries -->
+      <div id="extra-groceries-bottom-sheet-overlay" class="extra-groceries-overlay" style="display: none;">
+        <div id="extra-groceries-bottom-sheet" class="extra-groceries-bottom-sheet">
+          <!-- Slide down bar -->
+          <div class="extra-groceries-slide-bar"></div>
+          <div class="extra-groceries-header">
+            <img src="img/basket.png" alt="Extra Groceries" class="extra-groceries-img">
+            <!-- Replace with actual path -->
+            <h3 class="extra-groceries-title">Are you buying extra groceries beyond your plan?</h3>
+          </div>
+          <p class="extra-groceries-text"> Buying more than you need could produce potential food waste, are you sure? </p>
+          <!-- CTA Buttons -->
+          <button class="extra-groceries-button continue-button">Continue</button>
+          <button class="extra-groceries-button cancel-button" onclick="hideExtraGroceriesBottomSheet()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <!-- Track Food Waste Screen -->
+    <div id="track-food-waste-screen" style="display: none;">
+      <!-- Header Section -->
+      <h2 class="track-food-header">Track</h2>
+      <p class="track-food-paragraph">Calculate your potential savings and reduce food waste together</p>
+      <!-- Track Data Section -->
+      <h3 class="track-food-data-title">Track your data</h3>
+      <div class="track-food-data-containers">
+        <!-- Food Wasted Container -->
+        <div class="track-food-data-container">
+          <img src="img/empty-bin.png" alt="Food Wasted" class="track-food-data-img">
+          <!-- Replace with actual path -->
+          <h4 class="track-food-data-value">0 kg</h4>
+          <p class="track-food-data-label">Food Wasted</p>
+        </div>
+        <!-- Money Saved Container -->
+        <div class="track-food-data-container">
+          <img src="img/empty-moneyBag.png" alt="Money Saved" class="track-food-data-img">
+          <!-- Replace with actual path -->
+          <h4 class="track-food-data-value">$ 0</h4>
+          <p class="track-food-data-label">Money Saved</p>
+        </div>
+      </div>
+      <!-- Reduce Food Waste Section -->
+      <h3 class="reduce-food-waste-title">Reduce food waste</h3>
+      <button class="track-food-action-button">
+        <img src="img/coconutOnionBanana.png" alt="Record Icon" class="track-food-button-icon cOB">
+        <!-- Replace with actual path --> Record my food waste </button>
+      <!-- 'Fixed' Bottom Navigation Bar -->
+      <div class="track-food-bottom-nav">
+        <!-- Home -->
+        <div class="nav-option home-nav-option">
+          <img src="img/home-inactive.png" alt="Home Icon" class="nav-icon">
+          <p class="nav-text">Home</p>
+        </div>
+        <!-- Track -->
+        <div class="nav-option active">
+          <img src="img/track-active.png" alt="Track Icon" class="nav-icon">
+          <p class="nav-text">Track</p>
+        </div>
+        <!-- Settings -->
+        <div class="nav-option">
+          <img src="img/settings-inactive.png" alt="Settings Icon" class="nav-icon">
+          <p class="nav-text">Settings</p>
+        </div>
+      </div>
+    </div>
+    <!-- Record Food Waste Screen -->
+    <div id="record-food-waste-screen" style="display: none;">
+      <div class="record-food-top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" id="record-food-back-arrow">
+        <h2 class="record-food-title">Record Food Waste</h2>
+      </div>
+      <p class="record-food-info-text">Tell us how much food you wasted to help us improve your meal plan and calculate potential savings</p>
+      <!-- Record My Food Waste Content (Not Dynamic | For demo purpose only) -->
+      <div id="record-food-waste-content">
+        <!-- Recipe: Ma Po Tofu -->
+        <div class="food-waste-recipe">
+          <h4 class="food-waste-recipe-title">Ma Po Tofu</h4>
+          <!-- Ingredient: Tofu -->
+          <div class="food-waste-item">
+            <div class="food-waste-item-text">
+              <span class="food-waste-item-name">Tofu</span>
+              <span class="food-waste-item-amount">30g of 100g</span>
+            </div>
+            <img src="img/plus-icon.png" alt="Add" class="food-waste-add-icon">
+          </div>
+          <hr class="food-waste-divider">
+          <!-- Ingredient: Minced Beef -->
+          <div class="food-waste-item">
+            <div class="food-waste-item-text">
+              <span class="food-waste-item-name">Minced Beef</span>
+              <span class="food-waste-item-amount">0g of 100g</span>
+            </div>
+            <img src="img/plus-icon.png" alt="Add" class="food-waste-add-icon">
+          </div>
+        </div>
+        <!-- Beyond Your Plan Section -->
+        <div class="food-waste-beyond-plan">
+          <h4 class="food-waste-beyond-title">Beyond your plan</h4>
+          <!-- Ingredient: Banana -->
+          <div class="food-waste-item">
+            <div class="food-waste-item-text">
+              <span class="food-waste-item-name">Banana</span>
+              <span class="food-waste-item-amount">0g of 100g</span>
+            </div>
+            <img src="img/plus-icon.png" alt="Add" class="food-waste-add-icon">
+          </div>
+        </div>
+      </div>
+      <div class="record-food-bottom-sticky">
+        <button class="record-food-button">See Summary</button>
+      </div>
+      <!-- Bottom Sheet for '%' selection in Record Food Waste screen -->
+      <!-- Overlay and Bottom Sheet for '%' selection -->
+      <div id="percentage-overlay" class="overlay" style="display: none;">
+        <!-- Bottom Sheet for '%' selection in Record Food Waste screen -->
+        <div id="percentage-bottom-sheet" class="bottom-sheet">
+          <!-- Slide handle bar -->
+          <div class="bottom-sheet-handle"></div>
+          <!-- Content inside the bottom sheet -->
+          <h2 class="bottom-sheet-title">Percentage</h2>
+          <img src="img/plate.png" alt="Percentage Image" class="bottom-sheet-image">
+          <div class="percentage-container">
+            <span class="percentage-text">30%</span>
+          </div>
+          <!-- Done CTA Button to 'close' bottom sheet -->
+          <button class="bottom-sheet-done-button">Done</button>
+        </div>
+      </div>
+    </div>
+    <!-- Calculated Summary Screen -->
+    <div id="calculated-summary-screen" style="display: none;">
+      <div class="calculated-summary-top-section">
+        <img src="img/back-arrow.png" alt="Back Arrow" class="calculated-summary-back-arrow">
+        <h2 class="calculated-summary-title">Calculated Summary</h2>
+      </div>
+      <!-- Calculated Summary content -->
+      <div id="calculated-summary-content">
+        <div class="summary-item">
+          <h4 class="summary-recipe-title">Ma Po Tofu</h4>
+          <div class="summary-food-waste-item">
+            <div class="summary-food-waste-item-text">
+              <span class="summary-food-waste-item-name">Tofu</span>
+              <span class="summary-food-waste-item-amount">30g of 100g <span style="color: #019E4F">≈ $4</span>
+              </span>
+            </div>
+          </div>
+          <hr class="summary-food-waste-divider">
+          <div class="summary-food-waste-item">
+            <div class="summary-food-waste-item-text">
+              <span class="summary-food-waste-item-name">Minced Beef</span>
+              <span class="summary-food-waste-item-amount">0 of 100g <span style="color: #019E4F">≈ $4</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Beyond Your Plan Section -->
+        <div class="summary-beyond-plan">
+          <h4 class="summary-beyond-title">Beyond your plan</h4>
+          <div class="summary-food-waste-item">
+            <div class="summary-food-waste-item-text">
+              <span class="summary-food-waste-item-name">Banana</span>
+              <span class="summary-food-waste-item-amount">0 of 100g <span style="color: #019E4F">≈ $0.50</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="calculated-summary-continue-button-sticky">
+        <button class="calculated-summary-continue-button">Continue</button>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
